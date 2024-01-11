@@ -1,0 +1,1 @@
+INSERT INTO books(publication_year, author, title, isbn) VALUES (2000, 'ahmad', 'SE', '1234');
