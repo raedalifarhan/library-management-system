@@ -6,6 +6,8 @@
     import com.rf.librarymanagementsystem.repositories.BookRepository;
     import lombok.RequiredArgsConstructor;
     import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.cache.annotation.CacheEvict;
+    import org.springframework.cache.annotation.Cacheable;
     import org.springframework.stereotype.Service;
 
     import java.util.List;
@@ -18,6 +20,7 @@
         private final BookRepository bookRepository;
 
 
+        @Cacheable("allBooks")
         public List<Book> getAllBooks() {
             return bookRepository.findAll();
         }
@@ -33,6 +36,7 @@
             return book;
         }
 
+        @CacheEvict(value = "allBooks", allEntries = true)
         public Book addBook(Book book) {
 
             String title = book.getTitle();
@@ -44,6 +48,7 @@
             return bookRepository.save(book);
         }
 
+        @CacheEvict(value = "allBooks", allEntries = true)
         public Book updateBook(Long id, Book book) {
 
             if (!bookRepository.existsById(id))
@@ -69,6 +74,7 @@
             return bookRepository.save(bookToUpdate);
         }
 
+        @CacheEvict(value = "allBooks", allEntries = false)
         public void deleteBook(Long id) {
             if (!bookRepository.existsById(id)) throw new ApiNotFoundException("Book not found with id: " + id);
             bookRepository.deleteById(id);

@@ -11,3 +11,8 @@ spring:
   sql:
     init:
       model: always
+  cache:
+    type: caffeine  # Use Caffeine as the cache provider (can be replaced with other cache providers)
+
+caffeine:
+  spec: maximumSize=100  # Configure Caffeine cache with a maximum size of 100 entries (customize as needed)

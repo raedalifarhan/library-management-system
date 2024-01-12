@@ -6,6 +6,8 @@ import com.rf.librarymanagementsystem.models.Patron;
 import com.rf.librarymanagementsystem.repositories.PatronRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +19,7 @@ public class PatronService {
     @Autowired
     private final PatronRepository patronRepository;
 
+    @Cacheable("allPatron")
     public List<Patron> getAllPatrons() {
         return patronRepository.findAll();
     }
@@ -34,10 +37,12 @@ public class PatronService {
         return patron;
     }
 
+    @CacheEvict(value = "allPatron", allEntries = true)
     public Patron addPatron(Patron patron) {
         return patronRepository.save(patron);
     }
 
+    @CacheEvict(value = "allPatron", allEntries = true)
     public Patron updatePatron(Long id, Patron patron) {
 
         if (!patronRepository.existsById(id))
@@ -55,6 +60,7 @@ public class PatronService {
         return patronRepository.save(patronToUpdate);
     }
 
+    @CacheEvict(value = "allPatron", allEntries = false)
     public void deletePatron(Long id) {
 
         if (!patronRepository.existsById(id))
