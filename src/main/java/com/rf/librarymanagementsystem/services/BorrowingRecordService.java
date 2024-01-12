@@ -11,6 +11,7 @@ import com.rf.librarymanagementsystem.repositories.PatronRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
@@ -25,6 +26,7 @@ public class BorrowingRecordService {
     @Autowired
     private final PatronRepository patronRepository;
 
+    @Transactional
     public Boolean borrowBook(Long bookId, Long patronId) {
         if (!bookRepository.existsById(bookId))
             throw new ApiNotFoundException("Book not found with id: " + bookId);
@@ -54,6 +56,7 @@ public class BorrowingRecordService {
         return false;
     }
 
+    @Transactional
     public Boolean returnBook(Long bookId, Long patronId) {
         if (!bookRepository.existsById(bookId))
             throw new ApiNotFoundException("Book not found with id: " + bookId);
