@@ -50,12 +50,10 @@ public class PatronService {
 
         Patron patronToUpdate = patronRepository.findById(id).orElse(null);
 
-        if (patronToUpdate != null) {
-            // Update the existing patron entity
-            // todo: Use mapper to update properties.
-            patronToUpdate.setName(patron.getName());
-            patronToUpdate.setContactInformation(patron.getContactInformation());
-        }
+        if (patronToUpdate == null) throw new ApiBadRequestException("Patron not found");
+
+        patronToUpdate.setName(patron.getName());
+        patronToUpdate.setContactInformation(patron.getContactInformation());
 
         return patronRepository.save(patronToUpdate);
     }
