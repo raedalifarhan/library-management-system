@@ -1,7 +1,7 @@
 package com.rf.librarymanagementsystem.controllers;
 
 import com.rf.librarymanagementsystem.DTOs.PatronDTO;
-import com.rf.librarymanagementsystem.Services.PatronService;
+import com.rf.librarymanagementsystem.services.PatronService;
 import com.rf.librarymanagementsystem.models.Patron;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

@@ -1,4 +1,4 @@
-    package com.rf.librarymanagementsystem.Services;
+    package com.rf.librarymanagementsystem.services;
 
     import com.rf.librarymanagementsystem.exceptions.ApiBadRequestException;
     import com.rf.librarymanagementsystem.exceptions.ApiNotFoundException;
@@ -46,7 +46,8 @@
 
         public Book updateBook(Long id, Book book) {
 
-            if (!bookRepository.existsById(id)) throw new ApiNotFoundException("Book not found with id: " + id);
+            if (!bookRepository.existsById(id))
+                throw new ApiNotFoundException("Book not found with id: " + id);
 
             String title = book.getTitle();
 

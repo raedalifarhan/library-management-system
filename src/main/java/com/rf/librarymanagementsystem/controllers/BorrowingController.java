@@ -1,6 +1,6 @@
 package com.rf.librarymanagementsystem.controllers;
 
-import com.rf.librarymanagementsystem.Services.BorrowingRecordService;
+import com.rf.librarymanagementsystem.services.BorrowingRecordService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

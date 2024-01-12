@@ -1,7 +1,7 @@
 package com.rf.librarymanagementsystem.controllers;
 
 import com.rf.librarymanagementsystem.DTOs.BookDTO;
-import com.rf.librarymanagementsystem.Services.BookService;
+import com.rf.librarymanagementsystem.services.BookService;
 import com.rf.librarymanagementsystem.models.Book;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

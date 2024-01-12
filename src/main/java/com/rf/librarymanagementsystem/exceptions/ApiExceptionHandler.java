@@ -40,10 +40,10 @@ public class ApiExceptionHandler {
     public ResponseEntity<ApiExceptionResponse> handleBadRequestException(Exception ex) {
         ApiExceptionResponse error = ApiExceptionResponse.builder()
                 .message(ex.getMessage())
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .status(HttpStatus.BAD_REQUEST)
                 .timeStamp(ZonedDateTime.now(ZoneId.of("Z")))
                 .build();
 
-        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 }

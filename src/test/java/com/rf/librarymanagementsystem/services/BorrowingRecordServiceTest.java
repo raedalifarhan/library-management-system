@@ -1,4 +1,4 @@
-package com.rf.librarymanagementsystem.Services;
+package com.rf.librarymanagementsystem.services;
 
 import com.rf.librarymanagementsystem.exceptions.ApiNotFoundException;
 import com.rf.librarymanagementsystem.models.Book;

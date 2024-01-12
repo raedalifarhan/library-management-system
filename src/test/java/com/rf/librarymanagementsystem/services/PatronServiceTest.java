@@ -1,4 +1,4 @@
-package com.rf.librarymanagementsystem.Services;
+package com.rf.librarymanagementsystem.services;
 
 import com.rf.librarymanagementsystem.exceptions.ApiBadRequestException;
 import com.rf.librarymanagementsystem.exceptions.ApiNotFoundException;
